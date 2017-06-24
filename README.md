@@ -2,8 +2,6 @@ This is a simple app that tracks location coordinates of the device.
 
 ## How to use this app
 
-First intall ionic and cordova using following commands:
-
 ### Using CLI:
 
 Install ionic and cordova using npm(make sure you have npm and nodejs installed):
@@ -22,7 +20,7 @@ Then, cd into the project directory and install the dependencies:
 
 ```bash
 $ cd tracker
-$npm install
+$ npm install
 ```
 
 Then, to run it, cd into `tracker` and run:
