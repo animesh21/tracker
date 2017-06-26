@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LocationTrackerProvider } from '../providers/location-tracker/location-tracker';
-import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
+// import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
 import {HttpModule} from "@angular/http";
 import { RemoteServiceProvider } from '../providers/remote-service/remote-service';
@@ -33,7 +33,7 @@ import { RemoteServiceProvider } from '../providers/remote-service/remote-servic
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LocationTrackerProvider,
-    BackgroundGeolocation,
+    // BackgroundGeolocation,
     Geolocation,
     RemoteServiceProvider
   ]

@@ -4,6 +4,7 @@ import { LocationTrackerProvider } from '../../providers/location-tracker/locati
 import {RemoteServiceProvider} from "../../providers/remote-service/remote-service";
 import { AlertController } from 'ionic-angular';
 
+declare var google;
 
 @Component({
   selector: 'page-home',
@@ -12,6 +13,7 @@ import { AlertController } from 'ionic-angular';
 })
 export class HomePage {
 
+  public geocoder = new google.maps.Geocoder;
 
   constructor(public navCtrl: NavController,
               public locationTrackerProvider: LocationTrackerProvider,
@@ -33,7 +35,20 @@ export class HomePage {
   sendEmail() {
     let lat = this.locationTrackerProvider.lat;
     let lng = this.locationTrackerProvider.lng;
-    this.remoteServiceProvider.sendEmail(lat, lng);
+
+    // using reverse geocoding with google api to find out
+    // address of the given coordinates
+    let latLng = {
+      lat: lat,
+      lng: lng
+    };
+    this.geocoder.geocode({'location': latLng}, (results, status) => {
+      if(status == 'OK') {
+        let address = results[0]['formatted_address'];
+        console.log('Adress: ' + address);
+        this.remoteServiceProvider.sendEmail(lat, lng, address);
+      }
+    });
   }
 
   ionViewDidLoad() {

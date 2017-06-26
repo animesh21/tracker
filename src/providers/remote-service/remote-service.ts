@@ -19,9 +19,9 @@ export class RemoteServiceProvider {
     console.log('Hello RemoteServiceProvider Provider');
   }
 
-  sendEmail(lat, lng) {
+  sendEmail(lat, lng, address) {
 
-    let body = {'lat': lat, 'lng': lng};
+    let body = {'lat': lat, 'lng': lng, 'address': address};
 
     this.http.post(this.email_url, body)
       .subscribe((data) => {
