@@ -25,11 +25,11 @@ export class RemoteServiceProvider {
 
     this.http.post(this.email_url, body)
       .subscribe((data) => {
-      let message = 'Email Sent Successfully!';
+      let message = 'Thanks for your contribution, have a lovely day !';
       console.log(message);
       this.emailAlert(message);
       }, (error) => {
-      let message = 'Error In Sending Email ';
+      let message = 'Error';
       console.log(message, error);
       this.emailAlert(message);
       });

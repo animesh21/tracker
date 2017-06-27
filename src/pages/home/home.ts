@@ -14,6 +14,8 @@ export class HomePage {
 
   public geocoder = new google.maps.Geocoder;
 
+  public clickBit = 0;
+
   constructor(public locationTrackerProvider: LocationTrackerProvider,
               public remoteServiceProvider: RemoteServiceProvider,
               public platform: Platform
@@ -57,5 +59,9 @@ export class HomePage {
     this.stop();
     console.log('Exiting the app...');
     this.platform.exitApp();
+  }
+
+  toggleBit() {
+    this.clickBit = 1 - this.clickBit;
   }
 }

@@ -14,19 +14,18 @@
   <ion-item>
     <div class="wrapper">
       <img src="./assets/images/click-image.jpg" id="logo" (click)="sendEmail()"/>
-      <p>Tap me to email the location</p>
       <!--<button ion-button full primary (click)="exitApp()">Quit</button>-->
     </div>
   </ion-item>
   <ion-footer>
     <div id="advt">
-      <ion-item>
-        <a href="https://www.pawssum.com" target="_blank">
+      <ion-item *ngIf="clickBit">
+        <a (click)="toggleBit()" href="https://www.pawssum.com" target="_blank">
           Book a house call visit from local vets for $99
         </a>
-      </ion-item>
-      <ion-item>
-        <a href="https://www.pawssum.com" target="_blank">
+      </ion-item> 
+      <ion-item *ngIf="!clickBit">
+        <a (click)="toggleBit()" href="https://www.pawssum.com" target="_blank">
           <img src="./assets/icon/adv-logo.png" id="adv-img">
         </a>
       </ion-item>
