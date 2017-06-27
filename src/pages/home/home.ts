@@ -38,7 +38,7 @@ export class HomePage {
     let lat = this.locationTrackerProvider.lat;
     let lng = this.locationTrackerProvider.lng;
 
-    // using reverse geocoding from google api to find out
+    // using reverse geocoding with google api to find out
     // address of the given coordinates
     let latLng = {
       lat: lat,

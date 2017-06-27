@@ -1,26 +1,39 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+This is a simple app that tracks location coordinates of the device.
 
-## How to use this template
+## How to use this app
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+### Using CLI:
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+Install ionic and cordova using npm(make sure you have npm and nodejs installed):
 
 ```bash
 $ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
 ```
 
-Then, to run it, cd into `myBlank` and run:
+Then, clone it from github by giving following command(make sure you have git installed):
 
 ```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+$ git clone https://github.com/animesh21/tracker.git
 ```
 
-Substitute ios for android if not on a Mac.
+Then, cd into the project directory and install the dependencies:
+
+```bash
+$ cd tracker
+$ npm install
+```
+
+Then, to run it, cd into `tracker` and run:
+
+```bash
+$ ionic serve
+```
+
+To run on android device(make sure the device is connected):
+
+```bash
+$ ionic cordova run -c -l android
+```
+
+
 
