@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {Platform} from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 import { LocationTrackerProvider } from '../../providers/location-tracker/location-tracker'
-import {RemoteServiceProvider} from "../../providers/remote-service/remote-service";
+import { RemoteServiceProvider } from "../../providers/remote-service/remote-service";
 
 declare var google;
 
@@ -20,11 +20,10 @@ export class HomePage {
               public remoteServiceProvider: RemoteServiceProvider,
               public platform: Platform
   ) {
-
   }
 
   start() {
-    this.locationTrackerProvider.startTracking();
+    this.locationTrackerProvider.startTracking()
   }
 
   stop() {
