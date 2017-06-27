@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import {NavController, Platform} from 'ionic-angular';
+import {Platform} from 'ionic-angular';
 import { LocationTrackerProvider } from '../../providers/location-tracker/location-tracker'
 import {RemoteServiceProvider} from "../../providers/remote-service/remote-service";
-import { AlertController } from 'ionic-angular';
 
 declare var google;
 
@@ -15,10 +14,8 @@ export class HomePage {
 
   public geocoder = new google.maps.Geocoder;
 
-  constructor(public navCtrl: NavController,
-              public locationTrackerProvider: LocationTrackerProvider,
+  constructor(public locationTrackerProvider: LocationTrackerProvider,
               public remoteServiceProvider: RemoteServiceProvider,
-              public alertCtrl: AlertController,
               public platform: Platform
   ) {
 
