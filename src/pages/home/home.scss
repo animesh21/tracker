@@ -1,8 +1,11 @@
 page-home {
   #logo {
-    width: 100%;
+    width: auto;
+    height: auto;
     box-shadow: 1px 1px 1px 1px #000000;
     border: 5px;
+    display: block;
+    margin: auto;
   }
 
   #adv-img {
