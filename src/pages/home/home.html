@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="secondary">
+  <ion-navbar>
     <ion-title>
       Mark My Poop
     </ion-title>
@@ -11,20 +11,20 @@
   <!--<ion-item>Current Longitude: {{ locationTrackerProvider.lng }}</ion-item>-->
   <!--<button ion-button full primary (click)="start()">Start Tracking</button>-->
   <!--<button ion-button full primary (click)="stop()">Stop Tracking</button>-->
-  <ion-item>
-    <div class="wrapper item-image">
-      <img src="./assets/images/click-image.jpg" id="logo" (click)="sendEmail()"/>
-      <!--<button ion-button full primary (click)="exitApp()">Quit</button>-->
-    </div>
-  </ion-item>
+  <!--<ion-item id="poop-button">-->
+  <div class="wrapper item-image" id="poop-button">
+    <img src="./assets/images/mark_my_poop_button.png" id="logo" (click)="sendEmail()"/>
+    <!--<button ion-button full primary (click)="exitApp()">Quit</button>-->
+  </div>
+  <!--</ion-item>-->
   <ion-footer>
     <div id="advt">
-      <ion-item *ngIf="clickBit">
+      <ion-item class="footer" *ngIf="clickBit">
         <a (click)="toggleBit()" href="https://www.pawssum.com" target="_blank">
-          Book a house call visit from local vets for $99
+          <p id="adv-text">Book a house call visit from local vets for $99</p>
         </a>
       </ion-item>
-      <ion-item *ngIf="!clickBit">
+      <ion-item class="footer" *ngIf="!clickBit">
         <a (click)="toggleBit()" href="https://www.pawssum.com" target="_blank">
           <img src="./assets/icon/adv-logo.png" id="adv-img">
         </a>

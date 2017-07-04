@@ -1,16 +1,18 @@
 page-home {
-  #logo {
+
+  #poop-button {
+    top: 20%;
+  }
+
+  img#logo {
     width: auto;
     height: auto;
-    box-shadow: 1px 1px 1px 1px #000000;
-    border: 5px;
     display: block;
     margin: auto;
   }
 
   #adv-img {
     width: 100%;
-
   }
 
   .wrapper {
@@ -24,4 +26,15 @@ page-home {
     margin-right: 25%;
   }
 
+  p#adv-text {
+    text-align: center;
+  }
+
+  .footer {
+    background-color: #D3D3D3;
+  }
+
+  .toolbar-background {
+    background-color: #4682B4;
+  }
 }

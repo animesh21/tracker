@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import {AlertController, LoadingController, Platform} from 'ionic-angular';
 import { LocationTrackerProvider } from '../../providers/location-tracker/location-tracker'
 import { RemoteServiceProvider } from "../../providers/remote-service/remote-service";
 
@@ -18,8 +18,9 @@ export class HomePage {
 
   constructor(public locationTrackerProvider: LocationTrackerProvider,
               public remoteServiceProvider: RemoteServiceProvider,
-              public platform: Platform
-  ) {
+              public platform: Platform,
+              public loadingCtrl: LoadingController,
+              public alertCtrl: AlertController) {
   }
 
   start() {
@@ -31,6 +32,15 @@ export class HomePage {
   }
 
   sendEmail() {
+    this.toggleBit();
+    let loading = this.loadingCtrl.create({
+      content: 'Sending...please wait'
+    });
+    loading.present().then(() => {
+      console.log('loader started');
+    }, (error) => {
+      console.error('can not start loader: ' + error);
+    });
     let lat = this.locationTrackerProvider.lat;
     let lng = this.locationTrackerProvider.lng;
 
@@ -43,11 +53,37 @@ export class HomePage {
     this.geocoder.geocode({'location': latLng}, (results, status) => {
       if(status == 'OK') {
         let address = results[0]['formatted_address'];
+        let message: string = 'Thanks for your contribution, have a lovely day !';
         console.log('Adress: ' + address);
-        this.remoteServiceProvider.sendEmail(lat, lng, address);
+        let res = this.remoteServiceProvider.sendEmail(lat, lng, address);
+        res.subscribe((data) => {
+          console.log('email sent successfully');
+          message = 'Thanks for your contribution, have a lovely day !';
+        }, (error) => {
+          console.error('error in sending email: ' + error);
+          message = 'Error while sending data, please try again !';
+        });
+        loading.dismiss().then(() => {
+          console.log('loader dismissed');
+          this.emailAlert(message);
+        });
       }
     });
   }
+
+  emailAlert(message) {
+    console.log('alert message: ' + message);
+    let alert = this.alertCtrl.create({
+      'title': message,
+      'buttons': ['Ok']
+    });
+    alert.present().then(() => {
+      console.log('alert fired');
+    }, (error) => {
+      console.error('error in firing alert: ' + error);
+    });
+  }
+
 
   ionViewDidLoad() {
     console.log('IonViewDidLoad: Home');
