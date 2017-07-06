@@ -1,14 +1,16 @@
 page-home {
 
-  #poop-button {
-    top: 20%;
-  }
-
   img#logo {
     width: auto;
     height: auto;
     display: block;
     margin: auto;
+    transform:translateY(50%);
+    //top: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+
   }
 
   #adv-img {
@@ -28,6 +30,7 @@ page-home {
 
   p#adv-text {
     text-align: center;
+    font-size: 15px;
   }
 
   .footer {

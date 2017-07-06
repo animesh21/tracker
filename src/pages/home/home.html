@@ -12,7 +12,7 @@
   <!--<button ion-button full primary (click)="start()">Start Tracking</button>-->
   <!--<button ion-button full primary (click)="stop()">Stop Tracking</button>-->
   <!--<ion-item id="poop-button">-->
-  <div class="wrapper item-image" id="poop-button">
+  <div class="wrapper item-image">
     <img src="./assets/images/mark_my_poop_button.png" id="logo" (click)="sendEmail()"/>
     <!--<button ion-button full primary (click)="exitApp()">Quit</button>-->
   </div>
@@ -21,7 +21,9 @@
     <div id="advt">
       <ion-item class="footer" *ngIf="clickBit">
         <a (click)="toggleBit()" href="https://www.pawssum.com" target="_blank">
-          <p id="adv-text">Book a house call visit from local vets for $99</p>
+
+            <p id="adv-text">Book a house call visit from local vets for $99</p>
+
         </a>
       </ion-item>
       <ion-item class="footer" *ngIf="!clickBit">

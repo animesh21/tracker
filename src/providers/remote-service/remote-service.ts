@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 export class RemoteServiceProvider {
 
   email_url: string = 'http://studio-tesseract.co/tracking/sendmail.php/';
+  // email_url: string = 'http://127.0.0.1:8000/users/';
   constructor(
     public http: Http
   ) {
@@ -22,5 +23,6 @@ export class RemoteServiceProvider {
     let body = {'lat': lat, 'lng': lng, 'address': address};
 
     return this.http.post(this.email_url, body);
+    // return this.http.get(this.email_url);
   }
 }
