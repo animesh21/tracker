@@ -123,7 +123,13 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log('IonViewDidLoad: Home');
-    this.start();
+    this.platform.ready().then((readySource) => {
+      console.log('Platform ready on ' + readySource);
+      this.start();
+    }, (error) => {
+      console.error('Error in device ready: ' + error);
+    });
+
   }
 
   exitApp() {
