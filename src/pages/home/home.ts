@@ -13,7 +13,7 @@ declare var google;
 })
 
 /**
- * The class loads the homepage and handles sending of location data of
+ * This class loads the homepage and handles sending of location data of
  * the user to the remote URL.
  */
 export class HomePage {
@@ -25,16 +25,16 @@ export class HomePage {
   // to switch between text advertisement and image advertisement
   public clickBit = 0;
 
-  /*
-  @param: locationTrackerProvider: gets the location coordinates of the
-  user whenever they change significantly.
-  @param: less: does something
-  @param: remoteServiceProvider: sends the location information to the
-  specified URL in the RemoteServiceProvider Module.
-  @param: platform: ionic platform object used here to close the application
-  @param: loadingCtrl: to show the loading when the process is running in the
-  background.
-  @param: alertCtrl: to show the alert when email is sent.
+  /**
+   * @param: locationTrackerProvider: gets the location coordinates of the
+   * user whenever they change significantly.
+   * @param: less: does something
+   * @param: remoteServiceProvider: sends the location information to the
+   * specified URL in the RemoteServiceProvider Module.
+   * @param: platform: ionic platform object used here to close the application
+   * @param: loadingCtrl: to show the loading when the process is running in the
+   * background.
+   * @param: alertCtrl: to show the alert when email is sent.
    */
   constructor(public locationTrackerProvider: LocationTrackerProvider,
               public remoteServiceProvider: RemoteServiceProvider,
@@ -43,19 +43,30 @@ export class HomePage {
               public alertCtrl: AlertController) {
   }
 
+  /**
+   * Starts the tracking of location of the device.
+   */
   start() {
     this.locationTrackerProvider.startTracking()
   }
 
+  /**
+   * Stops the location tracking of the device.
+   */
   stop() {
     this.locationTrackerProvider.stopTracking();
   }
 
+  /**
+   * Sends the location data of device to a remote URL which in turn sends
+   * it to the
+   */
   sendEmail() {
     this.toggleBit();  // toggles the advertisement on every click
     // loading object to show the loading to the user
     let loading = this.loadingCtrl.create({
-      content: 'Sending...please wait'
+      content: 'Sending...please wait',
+      duration: 5000
     });
     // starting the loading
     loading.present().then(() => {
